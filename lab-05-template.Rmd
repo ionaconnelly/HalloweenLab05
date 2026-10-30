@@ -1,6 +1,6 @@
 ---
 title: "Lab 05 - Halloween Candies & Data Viz Improvement"
-author: "User1, User2, User3 and User4 - Team Name"
+author: "Iona Connelly"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -21,7 +21,7 @@ library(ggplot2)
 knitr::include_graphics("img/Speaking-the-world.jpg")
 ```
 
-_Write your comments about image 1 below_
+_It is claiming that 1026 billion people speak chinese which is impossible since there is only 7/8 billion people on the earth._
 
 
 
@@ -80,10 +80,17 @@ glimpse(candy_df)
 
 ## Exercise 1
 
+```{r}
+nrow(candy_df)
+ncol(candy_df)
+dim(candy_df)
+```
+
+
 How many observations and variables are in this dataset?
 Did you identify the type of variables, remember that this detail is crucial to create which kind of data visualization in general. 
 
-_Write your comments about results_
+_See above._
 
 # Data viz - One variable at a time
 
@@ -99,8 +106,9 @@ candy_df <- candy_df %>%
 Complete the following code to get the data viz to represent "how many candies contain caramel via bar plot". Fill in the blanks, remove the # symbol in front of your code and the execute the code chunk via green play button.
 
 ```{r}
-# ggplot(candy_rankings, aes(x = ______)) +
-#  _____() +
+ ggplot(candy_rankings, aes(x=caramel)) +
+  geom_bar() +
+  labs(x="Contains caramel (F/T)", y="Number of candies", title="Number of candies containing caramel")
 ```
 
 ## Exercise 3
@@ -108,7 +116,9 @@ Complete the following code to get the data viz to represent "how many candies c
 Now look at a numerical variable, such as `winpercent`. Create an histogram for this variable using ggplot2 functions below. Include informative x and y labels and a title, as a good practice.
 
 ```{r}
-# Your code here
+ggplot(candy_rankings, aes(x=winpercent)) +
+  geom_histogram() +
+  labs(x="Percentage of winners", y="Count", title= "Percentage of winners by candy type")
 
 ```
 
